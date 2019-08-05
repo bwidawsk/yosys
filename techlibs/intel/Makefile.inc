@@ -12,3 +12,6 @@ $(foreach family,$(families), $(eval $(call add_share_file,share/intel/$(family)
 $(foreach family,$(families), $(eval $(call add_share_file,share/intel/$(family),techlibs/intel/$(family)/cells_map.v)))
 #$(eval $(call add_share_file,share/intel/cycloneive,techlibs/intel/cycloneive/arith_map.v))
 
+# Add cell models and mappings for mistral/nextpnr backend
+$(eval $(call add_share_file,share/intel/mistral/alm,$$(wildcard techlibs/intel/mistral/alm/*.v)))
+#$(eval $(call add_share_file,share/intel/mistral/le,$$(wildcard techlibs/intel/mistral/le/*.v)))
