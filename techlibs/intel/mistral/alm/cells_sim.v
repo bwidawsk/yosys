@@ -17,7 +17,7 @@
  *
  */
 
-module MISTRAL_FF(input D, CLK, AC, output reg Q);
+module MISTRAL_ALM_FF(input D, CLK, AC, output reg Q);
 
 always @(posedge CLK or posedge AC)
     if (AC)
@@ -27,7 +27,7 @@ always @(posedge CLK or posedge AC)
 
 endmodule
 
-module MISTRAL_LUT4(input A, B, C, D, output Q);
+module MISTRAL_ALM_LUT4(input A, B, C, D, output Q);
 
 parameter [15:0] LUT = 16'h0000;
 
@@ -38,14 +38,13 @@ assign Q = A ? s1[1] : s1[0];
 
 endmodule
 
-module MISTRAL_MUX2(input A, B, S, output Q);
+module MISTRAL_ALM_MUX2(input A, B, S, output Q);
 
 assign Q = S ? B : A;
 
 endmodule
 
-module MISTRAL_CARRY(input A, B, C, D, Cin, output S, T, Cout);
-
+module MISTRAL_ALM_ADDER_CARRY(input A, B, C, D, Cin, output S, T, Cout);
 wire carry;
 assign {carry, S} = A + B + Cin;
 assign {Cout, T} = C + D + carry;

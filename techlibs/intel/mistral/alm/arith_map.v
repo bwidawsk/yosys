@@ -43,7 +43,7 @@ wire [Y_WIDTH:0] INTERNAL_CARRY;
 genvar i;
 generate for (i = 0; i < Y_WIDTH; i = i + 2) begin:slice
     // Hard logic for internal addition.
-    MISTRAL_CARRY carry(
+    MISTRAL_ALM_ADDER_CARRY carry(
         .A(AA[i]),
         .B(BB[i]),
         .C(AA[i+1]),
