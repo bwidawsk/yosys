@@ -21,14 +21,8 @@
 `include "cells_sim.v"
 `endif
 
-module \$lut (A, Y);
-
-parameter WIDTH = 1;
-parameter LUT = 0;
-
-input [WIDTH-1:0] A;
-output Y;
-
+module \$lut #(parameter WIDTH = 1, parameter LUT =0)
+	      (input [WIDTH-1:0]A, output Y);
 generate
     if (WIDTH == 1) begin
         localparam LUT16 = {{8{LUT[1]}}, {8{LUT[0]}}};
